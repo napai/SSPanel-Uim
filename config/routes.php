@@ -42,7 +42,7 @@ $container['notAllowedHandler'] = static function ($c) {
     };
 };
 
-if ($debug == false) {
+if ($container['settings']['debug'] == false) {
     $container['errorHandler'] = static function ($c) {
         return static function ($request, $response, $exception) use ($c) {
             return $response->withAddedHeader('Location', '/500');
